@@ -1,0 +1,4 @@
+@mixin box($bg-color) {
+  background-color: $bg-color;
+  border-bottom: 2px solid $off-color;
+}
