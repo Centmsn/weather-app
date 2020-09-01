@@ -15,16 +15,36 @@ import clouds from "../assets/clouds.mp4";
 class App extends Component {
   state = {
     localForecast: {},
-    userForecast: {},
+    userForecast: {
+      forecast: [],
+      name: "",
+    },
     locationAllowed: true,
   };
 
   fetchUserWeather = (e, value) => {
     e.preventDefault();
+    if (!value) return;
 
-    console.log(this.state.localForecast);
-    console.log(value);
-    console.log(e);
+    fetch(
+      `http://api.openweathermap.org/data/2.5/forecast?q=${value}&units=metric&appid=b7238569c5de7a001ca295ee92e8c746`
+    )
+      .then((response) => {
+        if (response.status !== 200) {
+          throw new Error("abc");
+        } else {
+          return response.json();
+        }
+      })
+      .then((data) =>
+        this.setState({
+          userForecast: {
+            forecast: data.list.slice(0, 3),
+            name: value,
+          },
+        })
+      )
+      .catch((err) => console.log(err));
   };
 
   componentDidMount() {
@@ -70,13 +90,7 @@ class App extends Component {
               />
             )}
             <SearchBar fetchUserWeather={this.fetchUserWeather} />
-            <UserWeather
-              temperature={userForecast.temperature}
-              weather={userForecast.weather}
-              name={userForecast.name}
-              sunrise={userForecast.sunrise}
-              sunset={userForecast.sunset}
-            />
+            <UserWeather userForecast={userForecast.forecast} />
             <Footer />
           </div>
         </div>
