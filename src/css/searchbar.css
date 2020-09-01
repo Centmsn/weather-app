@@ -1,0 +1,2 @@
+.searchBar{-ms-grid-row:3;-ms-grid-row-span:2;-ms-grid-column:1;grid-area:3 / 1 / 5 / 1;margin:0 auto}.searchBar input{font-size:2.25rem;padding:5px 10px;width:20vw;background-color:rgba(255,255,255,0.85);border:none}.searchBar button{font-size:2.25rem;padding:5px 10px;background-color:rgba(214,214,214,0.8);border-left:2px solid black;border-right:none;border-top:none;border-bottom:none;-webkit-transition:200ms;transition:200ms;cursor:pointer}.searchBar button:hover{color:white;background-color:#6494bb}
+/*# sourceMappingURL=searchbar.css.map */

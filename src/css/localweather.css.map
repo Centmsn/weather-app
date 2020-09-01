@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,aAAa,AAAC,CACZ,SAAS,CAAE,aAAa,CACxB,KAAK,CAAE,IAAI,CACX,gBAAgB,CCLF,qBAAwB,CDMtC,UAAU,CAAE,GAAG,CAAC,GAAG,CAAC,IAAI,CAAC,GAAG,CAAC,OAAe,CAC7C",
+    "sources": [
+        "../scss/localweather.scss",
+        "../scss/helpers/_variables.scss"
+    ],
+    "names": [],
+    "file": "localweather.css"
+}
