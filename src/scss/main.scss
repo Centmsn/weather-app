@@ -31,10 +31,11 @@ video {
   height: 100vh;
   display: grid;
   grid-template-rows: 15vh repeat(10, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   padding: 5vmin;
 
   .footer {
-    grid-area: 12 / 1 / 13 / 1;
+    grid-area: 12 / 1 / 13 / 11;
     a {
       color: rgba(180, 180, 180, 0.568);
       text-decoration: none;

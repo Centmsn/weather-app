@@ -8,9 +8,9 @@ import Footer from "./Footer";
 import "../css/main.css";
 // backgrounds
 import rain from "../assets/rain.mp4";
-import snow from "../assets/snow.mp4";
-import sun from "../assets/sun.mp4";
-import clouds from "../assets/clouds.mp4";
+// import snow from "../assets/snow.mp4";
+// import sun from "../assets/sun.mp4";
+// import clouds from "../assets/clouds.mp4";
 
 class App extends Component {
   state = {
@@ -39,7 +39,7 @@ class App extends Component {
       .then((data) =>
         this.setState({
           userForecast: {
-            forecast: data.list.slice(0, 3),
+            forecast: data.list,
             name: value,
           },
         })
@@ -65,6 +65,7 @@ class App extends Component {
               localForecast: {
                 temperature: data.main.temp,
                 weather: data.weather[0].main,
+                weatherIcon: data.weather[0].icon,
                 name: data.name,
               },
             })
@@ -81,16 +82,20 @@ class App extends Component {
       <>
         <div className="filter">
           <div className="container">
-            <AnimatedBg bg={clouds} />
+            <AnimatedBg bg={rain} />
             {this.state.locationAllowed && (
               <LocalWeather
                 temperature={localForecast.temperature}
                 weather={localForecast.weather}
+                weatherIcon={localForecast.weatherIcon}
                 name={localForecast.name}
               />
             )}
             <SearchBar fetchUserWeather={this.fetchUserWeather} />
-            <UserWeather userForecast={userForecast.forecast} />
+            <UserWeather
+              userForecast={userForecast.forecast}
+              name={userForecast.name}
+            />
             <Footer />
           </div>
         </div>

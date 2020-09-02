@@ -1,0 +1,14 @@
+@import "./helpers/variables";
+
+.hourlycard {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 20%;
+
+  .weatherDetails {
+    flex-basis: 100%;
+    img {
+      width: 15%;
+    }
+  }
+}
