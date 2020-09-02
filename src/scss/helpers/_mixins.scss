@@ -1,4 +1,16 @@
+@import "./variables";
+
 @mixin box($bg-color) {
   background-color: $bg-color;
   border-bottom: 2px solid $off-color;
+}
+
+@mixin btn($bg-col, $font-col, $hover-col) {
+  padding: 5px 10px;
+  transition: 200ms;
+  color: $font-col;
+  cursor: pointer;
+  &:hover {
+    background-color: $hover-col;
+  }
 }

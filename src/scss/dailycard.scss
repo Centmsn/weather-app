@@ -1,6 +1,36 @@
+@import "./helpers/variables";
+@import "./helpers/mixins";
 .dailycard {
-  flex-basis: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-areas:
+    "icon"
+    "temp"
+    "press"
+    "date"
+    "btn";
+  margin: 0 auto;
+  font-size: 1.25rem;
+  .icon {
+    grid-area: icon;
+  }
+  .temperature {
+    grid-area: temp;
+  }
+  .pressure {
+    grid-area: press;
+  }
+  .date {
+    grid-area: date;
+  }
+  .detail-btn {
+    grid-area: btn;
+    display: flex;
+    align-self: end;
+    button {
+      background-color: $off-color;
+      border: none;
+      font-size: 1.25rem;
+      @include btn($off-color, black, rgb(238, 238, 238));
+    }
+  }
 }

@@ -14,17 +14,11 @@
     @include box($off-color);
   }
   button {
+    @include btn($bg-main, $font-main, black);
+    @include box($bg-main);
     font-size: 2.25rem;
-    padding: 5px 10px;
     border-left: none;
     border-right: none;
     border-top: none;
-    transition: 200ms;
-    color: $font-main;
-    @include box($bg-main);
-    cursor: pointer;
-    &:hover {
-      background-color: rgb(100, 148, 187);
-    }
   }
 }

@@ -64,7 +64,7 @@ class App extends Component {
             this.setState({
               localForecast: {
                 temperature: data.main.temp,
-                weather: data.weather[0].main,
+                weather: data.weather[0].description,
                 weatherIcon: data.weather[0].icon,
                 name: data.name,
               },

@@ -4,7 +4,7 @@ import HourlyWeather from "./HourlyWeather";
 import "../css/dailycard.css";
 
 const WeatherCard = ({
-  temperature,
+  temp,
   weather,
   pressure,
   weatherIcon,
@@ -20,35 +20,32 @@ const WeatherCard = ({
   };
 
   const dailyWeather = (
-    <div className="card">
-      <div className="dailycard">
-        <div className="icon">
-          <img src={icon} alt={`${weather} icon`} />
-        </div>
-        <div className="temperature">
-          {temperature}
-          <sup>o</sup>C
-        </div>
-        <div className="pressure">{pressure} hPa</div>
-        <div className="date">{date}</div>
-
+    <div className="dailycard">
+      <div className="icon">
+        <img src={icon} alt={`${weather} icon`} />
+      </div>
+      <div className="temperature">
+        {temp}
+        <sup>o</sup>C
+      </div>
+      <div className="pressure">{pressure} hPa</div>
+      <div className="date">{date}</div>
+      <div className="detail-btn">
         <button onClick={handleShowDetails}>Show details</button>
       </div>
     </div>
   );
   const hourlyWeather = (
-    <div className="card">
-      <div className="hourlycard">
-        {details.map((el) => (
-          <HourlyWeather
-            icon={el.weather[0].icon}
-            temp={el.main.temp}
-            pressure={el.main.pressure}
-            clouds={el.clouds.all}
-          />
-        ))}
-        <button onClick={handleShowDetails}>Hide details</button>
-      </div>
+    <div className="hourlycard">
+      {details.map((el) => (
+        <HourlyWeather
+          icon={el.weather[0].icon}
+          temp={el.main.temp}
+          pressure={el.main.pressure}
+          clouds={el.clouds.all}
+        />
+      ))}
+      <button onClick={handleShowDetails}>Hide details</button>
     </div>
   );
 

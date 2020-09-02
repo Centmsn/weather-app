@@ -12,10 +12,10 @@ const UserWeather = ({ userForecast, name }) => {
     if (userForecast.length === 0) return;
     setDailyForecast([
       getDailyForecast(),
-      getDailyForecast(345600000),
       getDailyForecast(86400000),
       getDailyForecast(172800000),
       getDailyForecast(259200000),
+      getDailyForecast(345600000),
     ]);
   }, [userForecast]);
 
