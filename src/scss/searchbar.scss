@@ -1,19 +1,37 @@
 @import "./helpers/variables";
 @import "./helpers/mixins";
 
-.searchBar {
+.search-bar {
   grid-area: 3 / 2 / 5 / 10;
   margin: 0 auto;
+  @include mq(large) {
+    grid-area: 4 / 2 / 5 / 10;
+  }
+  @include mq(medium) {
+    grid-area: 4 / 1 / 5 / 11;
+  }
+  @include mq(xsmall) {
+    grid-area: 2 / 1 / 3 / -1;
+  }
 
-  input {
+  &__input {
     font-size: 2.25rem;
     padding: 5px 10px;
     width: 25vw;
     background-color: rgba(255, 255, 255, 0.65);
     border: none;
+    @include mq(large) {
+      width: 75%;
+    }
+    @include mq(xsmall) {
+      width: 100%;
+    }
     @include box($off-color);
   }
-  button {
+  &__btn {
+    @include mq(xsmall) {
+      width: 100vw;
+    }
     @include btn($bg-main, $font-main, black);
     @include box($bg-main);
     font-size: 2.25rem;

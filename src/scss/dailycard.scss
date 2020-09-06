@@ -1,6 +1,6 @@
 @import "./helpers/variables";
 @import "./helpers/mixins";
-.dailycard {
+.daily-card {
   display: grid;
   grid-template-areas:
     "icon"
@@ -10,27 +10,27 @@
     "btn";
   margin: 0 auto;
   font-size: 1.25rem;
-  .icon {
+  &__icon {
     grid-area: icon;
   }
-  .temperature {
+  &__temperature {
     grid-area: temp;
   }
-  .pressure {
+  &__pressure {
     grid-area: press;
   }
-  .date {
+  &__date {
     grid-area: date;
   }
-  .detail-btn {
+  &__btn-box {
     grid-area: btn;
     display: flex;
     align-self: end;
-    button {
-      background-color: $off-color;
-      border: none;
-      font-size: 1.25rem;
-      @include btn($off-color, black, rgb(238, 238, 238));
-    }
+  }
+  &__btn {
+    background-color: $off-color;
+    border: none;
+    font-size: 1.25rem;
+    @include btn($off-color, black, rgb(238, 238, 238));
   }
 }

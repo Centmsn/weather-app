@@ -2,14 +2,15 @@ import React from "react";
 
 import "../css/hourlycard.css";
 
-const HourlyWeather = ({ icon, temp, pressure, clouds }) => {
+const HourlyWeather = ({ icon, temp, pressure, clouds, time }) => {
   const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
   return (
-    <div className="weatherDetails">
-      <img src={iconUrl} alt="" />
+    <li className="hourly-card__list-item">
+      <img src={iconUrl} alt="weather icon" className="hourly-card__list-img" />
       {temp}
-    </div>
+      <sup>o</sup>C<span className="hourly-card__list-time">{time}</span>
+    </li>
   );
 };
 

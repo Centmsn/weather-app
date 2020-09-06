@@ -20,32 +20,40 @@ const WeatherCard = ({
   };
 
   const dailyWeather = (
-    <div className="dailycard">
-      <div className="icon">
+    <div className="daily-card">
+      <div className="daily-card__icon">
         <img src={icon} alt={`${weather} icon`} />
       </div>
-      <div className="temperature">
+      <div className="daily-card__temperature">
         {temp}
         <sup>o</sup>C
       </div>
-      <div className="pressure">{pressure} hPa</div>
-      <div className="date">{date}</div>
-      <div className="detail-btn">
-        <button onClick={handleShowDetails}>Show details</button>
+      <div className="daily-card__pressure">{pressure} hPa</div>
+      <div className="daily-card__date">{date}</div>
+      <div className="daily-card__btn-box">
+        <button className="daily-card__btn" onClick={handleShowDetails}>
+          Show details
+        </button>
       </div>
     </div>
   );
   const hourlyWeather = (
-    <div className="hourlycard">
-      {details.map((el) => (
-        <HourlyWeather
-          icon={el.weather[0].icon}
-          temp={el.main.temp}
-          pressure={el.main.pressure}
-          clouds={el.clouds.all}
-        />
-      ))}
-      <button onClick={handleShowDetails}>Hide details</button>
+    <div className="hourly-card">
+      <ul className="hourly-card__list">
+        {details.map((el) => (
+          <HourlyWeather
+            key={el.dt}
+            icon={el.weather[0].icon}
+            temp={el.main.temp.toFixed(1)}
+            pressure={el.main.pressure}
+            clouds={el.clouds.all}
+            time={el.dt_txt.slice(11, -3)}
+          />
+        ))}
+      </ul>
+      <button className="hourly-card__btn" onClick={handleShowDetails}>
+        Hide details
+      </button>
     </div>
   );
 

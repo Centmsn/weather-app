@@ -1,17 +1,27 @@
 @import "./helpers/variables";
+@import "./helpers/mixins";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
   font-family: "Montserrat", sans-serif;
+  @include mq(small) {
+    font-size: 13px;
+  }
 }
 
 body {
   background-color: black;
   overflow: hidden;
   max-width: 100vw;
-  max-height: 100vh;
+  @include mq(xsmall) {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
 }
 
 video {
@@ -33,6 +43,14 @@ video {
   grid-template-rows: 15vh repeat(10, 1fr);
   grid-template-columns: repeat(10, 1fr);
   padding: 5vmin;
+  @include mq(medium) {
+    padding: 1vmin;
+  }
+  @include mq(xsmall) {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
 
   .footer {
     grid-area: 12 / 1 / 13 / 11;

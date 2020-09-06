@@ -1,13 +1,54 @@
 @import "./helpers/variables";
+@import "./helpers/mixins";
 
-.hourlycard {
+.hourly-card {
   display: flex;
   flex-wrap: wrap;
+  border-right: 2px solid $bg-main;
+  border-left: 2px solid $bg-main;
+  @include mq(xsmall) {
+    border: none;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-  .weatherDetails {
+  &__list {
     flex-basis: 100%;
-    img {
-      width: 10%;
+    list-style: none;
+
+    @include mq(xsmall) {
+      flex-basis: 50%;
     }
+  }
+
+  &__list-item {
+    &:nth-child(even) {
+      background-color: $off-color;
+      color: black;
+    }
+  }
+
+  &__list-img {
+    width: 10%;
+  }
+
+  &__list-time {
+    float: right;
+    margin-right: 1vmin;
+  }
+
+  &__btn {
+    background-color: $off-color;
+    border: none;
+    font-size: 1.25rem;
+    align-self: flex-end;
+    justify-self: center;
+    flex-basis: 100%;
+
+    @include mq(xsmall) {
+      flex-basis: 25%;
+    }
+    @include btn($off-color, black, rgb(238, 238, 238));
   }
 }

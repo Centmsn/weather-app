@@ -31,19 +31,25 @@ class App extends Component {
     )
       .then((response) => {
         if (response.status !== 200) {
-          throw new Error("abc");
+          this.setState({
+            userForecast: {
+              forecast: "error",
+              name: "",
+            },
+          });
         } else {
           return response.json();
         }
       })
-      .then((data) =>
+      .then((data) => {
+        if (data === undefined) return;
         this.setState({
           userForecast: {
             forecast: data.list,
             name: value,
           },
-        })
-      )
+        });
+      })
       .catch((err) => console.log(err));
   };
 
@@ -55,7 +61,7 @@ class App extends Component {
         )
           .then((response) => {
             if (response.status !== 200) {
-              throw new Error("abc");
+              return;
             } else {
               return response.json();
             }
@@ -63,7 +69,7 @@ class App extends Component {
           .then((data) =>
             this.setState({
               localForecast: {
-                temperature: data.main.temp,
+                temperature: data.main.temp.toFixed(1),
                 weather: data.weather[0].description,
                 weatherIcon: data.weather[0].icon,
                 name: data.name,
